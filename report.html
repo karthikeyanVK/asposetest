@@ -1,0 +1,504 @@
+<head>
+    <title>Site Inspection Report</title>
+    <!-- $ss-primary-grey: #607979;
+$ss-secondary-grey: #9AABAB; -->
+    <style type="text/css">
+
+    /*
+    PAGE
+    */
+    @page {
+        size: a4;
+    }
+    /*@page :left {
+        margin-left: 3cm;
+    }
+    
+    @page :right {
+        margin-left: 4cm;
+    }*/
+    
+    @page :right {
+        @bottom-right {
+            content: "Page " counter(page) " of " counter(pages);
+        }
+    }
+    
+    @page :left {
+        @bottom-left {
+            content: "Page " counter(page) " of " counter(pages);
+        }
+    }
+    
+    h1 {
+        page-break-before: always;
+    }
+    
+    html, body {
+        height: 100%;
+    }
+    body {
+        font-family: Arial;
+        font-size: 12pt;
+    }
+    /*
+    SCREEN ONLY
+    */
+
+    @media screen {
+        section {
+            width: 170mm;
+            height: 257mm;
+            padding: 20mm;
+            border: 1px solid #ddd;
+            box-shadow: 5px 5px 5px #bbb;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            background: #fff;
+            position: relative;
+        }
+        body {
+            background: #e1e1e1;
+        }
+        .fc-details {
+            bottom: 20mm !important;
+        }
+    }
+    /*
+    TYPOGRAPHY
+    */
+    
+    h1,
+    h2,
+    h3,
+    h3,
+    h4 {
+        color: #607979;
+    }
+    
+    .text-orange {
+        color: #F89406;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .text-larger {
+        font-size: large;
+    }
+    
+    blockquote h4 {
+        color: #F89406;
+        margin-bottom: 0;
+    }
+    
+    blockquote {
+        border-left: 3pt solid #F89406;
+        background: #efefef;
+        padding: 2pt;
+        padding-left: 10pt;
+        font-size: smaller;
+    }
+
+    /*
+    Layout
+    */
+
+    .no-bottom-margin{
+        margin-bottom: 0 !important;
+    }
+    /*
+    TABLES
+    */
+    
+    table.fixed {
+        table-layout: fixed;
+        border-spacing: 10px;
+    }
+    
+    .row-divider {
+        font-weight: 800;
+    }
+    
+    td.scaffold-reference {
+        width: 5%;
+    }
+    
+    td.scaffold-location {
+        width: 45%;
+        max-width: 45%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    td.scaffold-score {
+        width: 50%;
+        text-align: center;
+        background: #45B975;
+        color: white;
+    }
+    /*
+    Lists
+    */
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+    
+    ul.nested-list {
+        box-sizing: border-box;
+        padding-left: 10pt;
+    }
+    /*
+    FRONT COVER
+    */
+    
+    .front-cover {
+        page-break-after: always;
+    }
+    
+    .front-cover h2 {
+        font-size: 36pt;
+        text-align: center;
+        font-weight: 200;
+    }
+    
+    .front-cover h3 {
+        font-size: 28pt;
+        text-align: center;
+        font-weight: 200;
+        margin: 0;
+    }
+    
+    h2.fc-title {
+        background: #3A3E47;
+        color: #fff;
+        font-weight: 200;
+        font-size: 28pt;
+        padding: 10pt;
+        width: 300pt;
+        text-align: right;
+        margin-top: 20%;
+    }
+    
+    h2.fc-title span {
+        color: #45B975;
+    }
+    
+    h4.fc-label {
+        margin: 0;
+    }
+    
+    .fc-details {
+        border-left: 5pt solid #45B975;
+        padding-left: 10pt;
+        position: absolute;
+        bottom: 0;
+    }
+    
+    .fc-details p {
+        margin-bottom: 20pt;
+    }
+    
+    .fc-sub-title {
+        color: #A3B0AF;
+        text-align: center;
+        margin: 0;
+        margin-top: 40pt;
+    }
+    
+    .fc-site-details {
+        width: 250pt;
+    }
+    /*
+    TABLE OF CONTENTS
+    */
+    
+    .toc-title {
+        color: #45B975;
+        text-transform: uppercase;
+        font-weight: 800;
+    }
+    
+    .table-of-contents ul {
+        line-height: 2;
+    }
+    
+    .table-of-contents li {
+        width: 100%;
+        position: relative;
+    }
+    
+    .table-of-contents span.toc-page-num {
+        position: absolute;
+        right: 0;
+    }
+    .table-of-contents .toc-title span.toc-page-num {
+        font-size: 14pt;
+    }
+    /*
+    Inspection Summary
+    */
+    
+    .overall-score >span {
+        display: block;
+        text-align: center;
+        font-size: 22pt;
+        font-weight: 600;
+        color: #3A3E47;
+    }
+    
+    .score-breakdown {
+        background: #D3D3D3;
+        margin: 20pt 0;
+        border-top: #45B975 solid 5pt;
+        padding: 5pt 10pt;
+    }
+    
+    .score-breakdown >div {
+        width: 32%;
+        display: inline-block;
+    }
+    
+    .square {
+        width: 30pt;
+        height: 30pt;
+        display: inline-block;
+        text-align: center;
+        font-size: 12pt;
+        font-weight: 800;
+        line-height: 2;
+        margin-right: 5pt;
+    }
+    
+    .circle {
+        width: 15pt;
+        height: 15pt;
+        border-radius: 50%;
+    }
+    
+    .green {
+        background: #45B975;
+        color: white;
+    }
+    
+    .orange {
+        background: #F89406;
+        color: white;
+    }
+    
+    .red {
+        background: #D0021B;
+        color: white;
+    }
+    /*
+    Detailed Report
+    */
+    
+    .detailed-report li {
+        width: 100%;
+        position: relative;
+        margin-bottom: 5pt;
+    }
+    
+    .detailed-report li span {
+        position: absolute;
+        right: 0;
+    }
+    /*
+    APPENDIX
+    */
+    .appendix {
+        height: 100%;
+    }
+    .appendix >div {
+        display: inline-block;
+        width: 50%;
+        height: 50%;
+        float: left;
+        page-break-inside: avoid;
+        padding: 10pt;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .appendix p {
+        /*position: absolute;
+        bottom: 0;*/
+    }
+    
+    .appendix >div >img {
+        max-width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="front-cover">
+        <h2>First County Scaffolding</h2>
+        <p class="fc-sub-title">Report prepared for</p>
+        <h3>Carillion</h3>
+        <h2 class="fc-title"><span>SCAFFOLD</span> INSPECTION REPORT</h1>
+        <div class="fc-details">
+            <h4 class="fc-label">Site</h4>
+            <p class="fc-site-details">CADS Offices, Arrowsmith Court, 10 Station Approach, Broadstone, Dorset, BH188AX</p>
+            <h4 class="fc-label">Inspector</h4>
+            <p>John Smith</p>
+            <h4 class="fc-label">Date</h4>
+            <p>5th August 2016</p>
+            <h4 class="fc-label">Score</h4>
+            <p class="no-bottom-margin">91%</p>
+        </div>
+    </section>
+
+    <section class="table-of-contents">
+        <h1>Table Of Contents</h1>
+        <ul>
+            <li>
+                <span class="toc-title">Inspection Summary<span class="toc-page-num">3</span></span>
+                <ul class="nested-list">
+                    <li>Overall: 91% <span class="toc-page-num">3</span></li>
+                    <li>Plot One: 80% <span class="toc-page-num">3</span></li>
+                    <li>Plot Two: 90% <span class="toc-page-num">3</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <span class="toc-title">Detailed Report <span class="toc-page-num">4</span></span>
+                <ul class="nested-list">
+                    <li>Foundations <span class="toc-page-num">4</span></li>
+                    <li>Bracing <span class="toc-page-num">4</span></li>
+                    <li>Transoms <span class="toc-page-num">4</span></li>
+                </ul>
+            </li>
+
+            <li><span class="toc-title">Appendix <span class="toc-page-num">5</span></span></li>
+        </ul>    
+    </section>
+    
+
+    <section class="inspection-summary">
+        <h1>Inspection Summary</h1>
+        <div class="overall-score">
+            <span>91%</span>
+            <span>Overall Score</span> 
+        </div>
+
+        <div class="score-breakdown">
+            <div><span class="square green">91%</span><span>No defects</span></div>
+            <div><span class="square orange">5%</span><span>Minor defects remain</span></div>
+            <div><span class="square red">4%</span><span>Unsafe</span></div>
+        </div>
+
+        <table class="fixed">
+            <tbody>
+                <tr>
+                    <td class="row-divider" colspan="3">Plot One: 80%</td>
+                </tr>
+                <tr>
+                    <td class="scaffold-reference">00001</td>
+                    <td class="scaffold-location">Reception Area, Narrow Gable, North Elevation</td>
+                    <td class="scaffold-score">100%</td>
+                </tr>
+                <tr>
+                    <td class="scaffold-reference">00002</td>
+                    <td class="scaffold-location">Reception Area, Narrow Gable, North Elevation</td>
+                    <td class="scaffold-score">100%</td>
+                </tr>
+                <tr>
+                    <td class="scaffold-reference">00003</td>
+                    <td class="scaffold-location">Reception Area, Narrow Gable, North Elevation</td>
+                    <td class="scaffold-score">100%</td>
+                </tr>
+                <tr>
+                    <td class="scaffold-reference">00004</td>
+                    <td class="scaffold-location">Reception Area, Narrow Gable, North Elevation</td>
+                    <td class="scaffold-score">100%</td>
+                </tr>
+                <tr>
+                    <td class="scaffold-reference">00005</td>
+                    <td class="scaffold-location">Reception Area, Narrow Gable, North Elevation</td>
+                    <td class="scaffold-score">100%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+
+    <section class="detailed-report">
+        <h1>Detailed Report</h1>
+
+    <h3>Foundations</h3>
+    <ul class="">
+        <li>Adequate sole boards for ground conditions. <span class="circle green"></span></li>
+        <li>Adequate sole boards for ground conditions. <span class="circle green"></span></li>
+        <li>Correct use of base plates. <span class="circle green"></span></li>
+        <li>Foot ties installed if applicable. <span class="circle green"></span></li>
+        <li>Foot ties installed if applicable. <span class="circle green"></span></li>
+    </ul>
+
+    <h3>Bracing</h3>
+    <ul>
+        <li>Facade bracing every 6 bays. <span class="circle orange"></span></li>
+        <li>
+            <blockquote>
+                <h4>00003 - Roof level void zone 1 (appendix 1)</h4>
+                <p>Facade bracing has been removed from one of the bays due to third party interference.</p>
+            </blockquote>
+        </li>
+        <li>Adequate sole boards for ground conditions. <span class="circle green"></span></li>
+        <li>Correct use of base plates. <span class="circle green"></span></li>
+        <li>Foot ties installed if applicable. <span class="circle green"></span></li>
+        <li>Foot ties installed if applicable. <span class="circle green"></span></li>
+    </ul>
+    </section>
+    
+
+    <section class="appendix">
+        <h1>Appendix</h1>
+        <div>
+            <img src="images/image-1.jpg">
+            <p class="text-center">Appendix 1</p>
+        </div>
+
+        <div>
+            <img src="images/image-2.jpg">
+            <p class="text-center">Appendix 2</p>
+        </div>
+
+        <div>
+            <img src="images/image-3.jpg">
+            <p class="text-center">Appendix 3</p>
+        </div>
+        <div>
+            <img src="images/image-5.jpg">
+            <p class="text-center">Appendix 4</p>
+        </div>
+    </section>
+    <section class="appendix">
+        <div>
+            <img src="images/image-5.jpg">
+            <p class="text-center">Appendix 5</p>
+        </div>
+
+        <div>
+            <img src="images/image-2.jpg">
+            <p class="text-center">Appendix 6</p>
+        </div>
+
+        <div>
+            <img src="images/image-3.jpg">
+            <p class="text-center">Appendix 7</p>
+        </div>
+        <div>
+            <img src="images/image-1.jpg">
+            <p class="text-center">Appendix 8</p>
+        </div>
+    </section>
+    
+</body>
